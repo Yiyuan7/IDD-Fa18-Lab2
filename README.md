@@ -29,9 +29,43 @@ Include your responses to the bold questions on your own fork of [this lab repor
 **c. What was one mistake you made when wiring up the display? How did you fix it?**
 
 **d. What line of code do you need to change to make it flash your name instead of "Hello World"?**
+'hello world'
  
 **e. Include a copy of your Lowly Multimeter code in your lab write-up.**
 
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library by associating any needed LCD interface pin
+// with the arduino pin number it is connected to
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+int led = 9;           // the PWM pin the LED is attached to
+int brightness = 0;    // how bright the LED is
+int fadeAmount = 5;    // how many points to fade the LED by
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  pinMode(led, OUTPUT);
+  // Print a message to the LCD.
+  
+}
+
+void loop() {
+  analogWrite(led, brightness);
+
+  // change the brightness for next time through the loop:
+  brightness = brightness + fadeAmount;
+
+  // reverse the direction of the fading at the ends of the fade:
+  if (brightness <= 0 || brightness >= 255) {
+    fadeAmount = -fadeAmount;
+  }
+  lcd.print(brightness);
+  lcd.display();
+  delay(30);
+}
 
 ## Part C. Using a time-based digital sensor
 
