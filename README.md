@@ -39,7 +39,7 @@ I didn't have any problem. :p
 I changed 'hello world' to 'yf323' 
  
 **e. Include a copy of your Lowly Multimeter code in your lab write-up.**
-
+```
 #include <LiquidCrystal.h>
 
 #define ENC_A 6 //these need to be digital input pins
@@ -89,6 +89,8 @@ int read_encoder()
   ABab += 2*digitalRead(ENC_A)+digitalRead(ENC_B); //adds enc_a and enc_b values to bits 1 and 0
   return ( enc_states[ABab]);
 }
+```
+
 
 ## Part C. Using a time-based digital sensor
 
@@ -113,6 +115,7 @@ Star War theme song
 [Video](https://drive.google.com/file/d/1wTW278W7xBlB4dKmD_oRZBtiHggA3H7P/view?usp=sharing)
 
 code:
+```
 #include <LiquidCrystal.h>
 
 #define ENC_A 6 //these need to be digital input pins
@@ -199,5 +202,5 @@ void countDownRest() {
   countDownSet(false);
   displayTime = MAX_COUNT_DOWN_TIME;
 }
-
+```
 
